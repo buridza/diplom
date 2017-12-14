@@ -11,7 +11,7 @@ public class LoginationCommand implements Command{
 	@Override
 	public String execute(String request) {
 		String[] params = request.split("\\s+");
-		
+
 		ServiceFactory serviceFactory = ServiceFactory.getInstance();
 		UserService userService = serviceFactory.getUserService();
 		String login = params[1];

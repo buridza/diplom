@@ -23,7 +23,10 @@ public class ArrayListEx {
         /*for (Number in: treeSet) {
             System.out.println(in);
         }*/
-        treeSet.toString();
+        //{[25],[67]....}
+        for (Number in:treeSet) {
+            System.out.println(in);
+        }
         System.out.printf("%20s %70s%n","ТриСет",treeSet);
 
 
