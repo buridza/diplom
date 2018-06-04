@@ -18,7 +18,11 @@ import java.util.List;
 public class KeyListenerImpl extends Thread implements KeyListener {
     private Robot robot;
     private int nameIterator = 0;
-    long nanotime = System.currentTimeMillis();
+    long timeMillis
+            = System.currentTimeMillis();
+    PointerInfo pointerInfo;
+    int x;
+    int y;
 
     {
         try {
@@ -26,6 +30,10 @@ public class KeyListenerImpl extends Thread implements KeyListener {
         } catch (AWTException e) {
             e.printStackTrace();
         }
+        pointerInfo = MouseInfo.getPointerInfo();
+
+        x = pointerInfo.getLocation().x;
+        y = pointerInfo.getLocation().y;
     }
 
     public void keyTyped(KeyEvent e) {
@@ -108,8 +116,22 @@ public class KeyListenerImpl extends Thread implements KeyListener {
     @Override
     public void run() {
         setName("robot " + nameIterator);
+        int x;
+        int y;
+
         while (!isInterrupted()) {
-            robot.mouseMove(40, 40);
+            //robot.mouseMove(40, 40);
+
+            x = MouseInfo.getPointerInfo().getLocation().x;
+            y = MouseInfo.getPointerInfo().getLocation().y;
+
+            if(x!=MouseInfo.getPointerInfo().getLocation().x || y!=MouseInfo.getPointerInfo().getLocation().y){
+               System.out.println("in thread : " + (System.currentTimeMillis()-timeMillis));
+               timeMillis=System.currentTimeMillis();
+            }
+
+            x = MouseInfo.getPointerInfo().getLocation().x;
+            y = MouseInfo.getPointerInfo().getLocation().y;
         }
     }
 }

@@ -22,6 +22,7 @@ public class MouseMousionListenerImpl implements MouseMotionListener {
 
 
         Frame.session.save(new TimeLog(System.currentTimeMillis()-timePr));
+        System.out.println("in listener : " + (System.currentTimeMillis()-timePr ));
         timePr = System.currentTimeMillis();
 
     }

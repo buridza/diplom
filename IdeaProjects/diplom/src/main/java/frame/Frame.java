@@ -41,7 +41,7 @@ public class Frame{
         services = new Services();
         checkbox = new Checkbox();
         frame.add(checkbox);
-        highLvl = new HighLvl();
+        //highLvl = new HighLvl();
 
     }
 
